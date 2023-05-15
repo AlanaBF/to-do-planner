@@ -10,13 +10,13 @@ body {
 }
 
 .min-height {
- min-height: 60vh;
+  min-height: 90vh;
 }
 
 .min-height-todo {
-  min-height: 75vh;
- }
- 
+  min-height: 90vh;
+}
+
 .box {
   max-width: 400px;
   margin: 50px auto;
@@ -42,16 +42,18 @@ body {
 .image {
   display: flex;
   height: 250px;
- margin: auto;
- transform: rotate(-25deg);
- padding: 20px;
+  margin: auto;
+  transform: rotate(-25deg);
+  padding: 20px;
 }
 
 .item {
   min-height: 70px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid #f1f1f1;
+  padding: 0 20px;
 }
 
 .item:last-child {
@@ -81,15 +83,11 @@ form {
 }
 
 button {
-  min-height: 50px;
-  width: 500px;
-  border-radius: 50%;
+  border-radius: 10px;
   border-color: transparent;
   background-color: rgb(5, 85, 146);
   color: #caf0f8;
-  font-size: 30px;
-  padding-bottom: 6px;
-  border-width: 0;
+  font-size: 1rem;
 }
 
 input[type="text"] {
@@ -128,14 +126,14 @@ input[type="text"]:focus {
   padding: 10px;
 }
 div.container-fluid {
-margin: 0;
-padding: 10px;
+  margin: 0;
+  padding: 10px;
 }
 
 img.mb-4 {
   margin: 0 !important;
   padding: 0;
-  }
+}
 
 .navbarIcons:hover {
   font-size: 2rem !important;

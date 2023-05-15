@@ -1,0 +1,20 @@
+<div class="box" id="heading">
+    <h1><%- listTitle -%></h1>
+</div>
+
+<div class="box">
+    <% for(let i=0; i<newListItems.length; i++) { %>
+        <div class="item"> 
+           
+            <input type ="checkbox">  
+            <p class="p"><%= newListItems[i] %> </p>
+          <button class="deleteMe">X</button>
+      
+            </div>
+        <% } %>
+
+<form class="item" action="/general" method="post">
+    <input type="text" name="newItem" autocomplete="off" placeholder="add to do item" />
+    <button name="list" type="submit" value=<%= listTitle %>>+</button>
+</form>
+</div>

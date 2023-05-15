@@ -27,7 +27,7 @@ app.get("/", function (req, res) {
 
 app.get("/general", function (req, res) {
   //from date module. Could use date.getDay() as well
-  const day = date.getDay() + " General To Do List";
+  const day = date.getDay() + "<br/>" + " General To Do List";
   //list links to the list.ejs template
   res.render("list", { listTitle: day, newListItems: items });
 });
