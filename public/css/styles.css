@@ -41,7 +41,7 @@ body {
 
 .image {
   display: flex;
-  height: 250px;
+  height: 100px;
   margin: auto;
   transform: rotate(-25deg);
   padding: 20px;
