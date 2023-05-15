@@ -6,10 +6,17 @@ body {
   background-position: center;
   font-family: "Caveat", cursive;
   font-family: "Fuzzy Bubbles", cursive;
-  min-height: 100vh;
   margin: 0;
 }
 
+.min-height {
+ min-height: 60vh;
+}
+
+.min-height-todo {
+  min-height: 75vh;
+ }
+ 
 .box {
   max-width: 400px;
   margin: 50px auto;
