@@ -10,8 +10,6 @@
 * [License](#License)
 * [Contributing](#Contributing)
 * [Questions](#Questions)
-
-
 ## Technology Used
 
 ![HTML Badge](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
@@ -21,21 +19,24 @@
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 
-## Description 
+## Description
 A to do list created using node.js, express and EJS
 
-## Usage 
+Deployed Site: https://to-do-list-planner.onrender.com/
+
+## Usage
 You can use this application to create a to do list. It displays the date and the ability to add items to the list and tick when they are complete. You can do a work list, a general list etc.
 
 ## Screenshots
-<!-- ![To Do List](./.png) -->
+![To Do List](./public/images/mainpage.png)
+![To Do List](./public/images/worktodo-list.png)
 
-## Contributing   
+## Contributing
 *List of collaborators*
 Alana Barrett-Frew
-Course material from Udemy The Complete 2023 Web Development Bootcamp, Dr. Angela Yu
+Partial use of Course material from Udemy The Complete 2023 Web Development Bootcamp, Dr. Angela Yu
 
-## License 
+## License
 *This project is licensed under* [MIT](https://choosealicense.com/licenses/mit/)
 
 ## Questions
