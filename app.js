@@ -48,7 +48,7 @@ app.post("/general", function (req, res) {
 // Code for Work To Do List Page
 
 app.get("/work", function (req, res) {
-  const day = date.getDay() + " Work To Do List";
+  const day = date.getDay() + "<br/>" + "Work To Do List";
   res.render("list", { listTitle: day, newListItems: workItems });
 });
 
@@ -62,7 +62,7 @@ app.post("/work", function (req, res) {
 // Code for Shopping To Do List Page
 
 app.get("/shopping", function (req, res) {
-  const day = date.getDay() + " Shopping To Do List";
+  const day = date.getDay() + "<br/>" + "Shopping To Do List";
   res.render("list", { listTitle: day, newListItems: shoppingItems });
 });
 
@@ -76,7 +76,7 @@ app.post("/shopping", function (req, res) {
 // Code for Holiday To Do List Page
 
 app.get("/holiday", function (req, res) {
-  const day = date.getDay() + " Holiday To Do List";
+  const day = date.getDay() + "<br/>" + "Holiday To Do List";
   res.render("list", { listTitle: day, newListItems: holidayItems });
 });
 
