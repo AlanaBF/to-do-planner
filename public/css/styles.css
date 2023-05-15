@@ -1,16 +1,13 @@
-html {
-  min-height: 100vh;
-  margin: 0;
-  font-family: "Caveat", cursive;
-  font-family: "Fuzzy Bubbles", cursive;
-}
-
 body {
   background-color: #e4e9fd;
   background-image: url(../images/layered-waves-haikei.svg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  font-family: "Caveat", cursive;
+  font-family: "Fuzzy Bubbles", cursive;
+  min-height: 100vh;
+  margin: 0;
 }
 
 .box {
@@ -33,6 +30,10 @@ body {
   color: #caf0f8;
   text-align: center;
   padding: 20px;
+}
+
+.todolist-image {
+  background-image: url(../images/vecteezy_digital-drawing-of-a-page-of-planner-or-to-do-list-in-light_11048711_601.png);
 }
 
 .item {
