@@ -32,8 +32,12 @@ body {
   padding: 20px;
 }
 
-.todolist-image {
-  background-image: url(../images/vecteezy_digital-drawing-of-a-page-of-planner-or-to-do-list-in-light_11048711_601.png);
+.image {
+  display: flex;
+  height: 250px;
+ margin: auto;
+ transform: rotate(-25deg);
+ padding: 20px;
 }
 
 .item {
