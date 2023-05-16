@@ -5,10 +5,12 @@ const date = require(__dirname + "/date.js");
 
 const app = express();
 
-let items = [];
-let workItems = [];
-let shoppingItems = [];
-let holidayItems = [];
+const lists = {
+  general: [],
+  work: [],
+  shopping: [],
+  holiday: []
+};
 
 app.set("view engine", "ejs");
 
@@ -23,100 +25,45 @@ app.get("/", function (req, res) {
 });
 
 // ------------------------------------------------------------------ \\
-// Code for General To Do List Page
+// Code for List Pages
 
-app.get("/general", function (req, res) {
-  //from date module. Could use date.getDay() as well
-  const day = date.getDay() + "<br/>" + " General To Do List";
-  //list links to the list.ejs template
-  res.render("list", { listTitle: day, newListItems: items, list: "general" });
+const renderList = function (listName, title, items, res) {
+  const day = `${date.getDay()}<br/>${title}`;
+  res.render("list", { listTitle: day, newListItems: items, list: listName });
+};
+
+const addItem = function (listName, item, res) {
+  lists[listName].push(item);
+  res.redirect("/" + listName);
+  //clear input field
+  document.querySelector('input[name="newItem"]').value = "";
+};
+
+const deleteItem = function (listName, item, res) {
+  lists[listName] = lists[listName].filter(i => i !== item);
+  res.status(200).json({ message: "deleted" });
+};
+
+app.get("/:listName", function (req, res) {
+  const { listName } = req.params;
+  const title = listName.charAt(0).toUpperCase() + listName.slice(1) + " To Do List";
+  renderList(listName, title, lists[listName], res);
 });
 
-app.post("/general", function (req, res) {
+app.post("/:listName", function (req, res) {
+  const { listName } = req.params;
   const item = req.body.newItem;
-
-  // if (req.body.list === "Work") {
-  //   workItems.push(item);
-  //   res.redirect("/work");
-  // } else {
-    items.push(item);
-    res.redirect("/general");
-  //}
+  addItem(listName, item, res);
 });
 
-app.delete("/general/:item", function(req, res) {
-  const {item} = req.params
-  items = items.filter(i => {
-    i !== item
-  })
-  res.status(200).json({message:"deleted"})
-})
-
-// ------------------------------------------------------------------ \\
-// Code for Work To Do List Page
-
-app.get("/work", function (req, res) {
-  const day = date.getDay() + "<br/>" + "Work To Do List";
-  res.render("list", { listTitle: day, newListItems: workItems, list: "work" });
+app.delete("/:listName/:item", function (req, res) {
+  const { listName, item } = req.params;
+  try {
+    deleteItem(listName, item, res);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 });
-
-app.post("/work", function (req, res) {
-  const item = req.body.newItem;
-  workItems.push(item);
-  res.redirect("/work");
-});
-
-app.delete("/work/:item", function(req, res) {
-  const {item} = req.params
-  items = items.filter(i => {
-    i !== item
-  })
-  res.status(200).json({message:"deleted"})
-})
-
-// ------------------------------------------------------------------ \\
-// Code for Shopping To Do List Page
-
-app.get("/shopping", function (req, res) {
-  const day = date.getDay() + "<br/>" + "Shopping To Do List";
-  res.render("list", { listTitle: day, newListItems: shoppingItems, list: "shopping" });
-});
-
-app.post("/shopping", function (req, res) {
-  const item = req.body.newItem;
-  shoppingItems.push(item);
-  res.redirect("/shopping");
-});
-
-app.delete("/shopping/:item", function(req, res) {
-  const {item} = req.params
-  items = items.filter(i => {
-    i !== item
-  })
-  res.status(200).json({message:"deleted"})
-})
-
-// ------------------------------------------------------------------ \\
-// Code for Holiday To Do List Page
-
-app.get("/holiday", function (req, res) {
-  const day = date.getDay() + "<br/>" + "Holiday To Do List";
-  res.render("list", { listTitle: day, newListItems: holidayItems, list: "holiday"});
-});
-
-app.post("/holiday", function (req, res) {
-  const item = req.body.newItem;
-  holidayItems.push(item);
-  res.redirect("/holiday");
-});
-
-app.delete("/holiday/:item", function(req, res) {
-  const {item} = req.params
-  items = items.filter(i => {
-    i !== item
-  })
-  res.status(200).json({message:"deleted"})
-})
 
 // ------------------------------------------------------------------ \\
 

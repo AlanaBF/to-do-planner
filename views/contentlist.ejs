@@ -9,7 +9,7 @@
           <button data-list=<%= list %> data-item=<%= newListItems[i] %> class="deleteMe">X</button>
             </div>
         <% } %>
-<form class="item" action="/general" method="post">
+<form class="item" action="/<%= list %>" method="post">
     <input type="text" name="newItem" autocomplete="off" placeholder="add to do item" />
     <button name="list" type="submit" value=<%= listTitle %>>+</button>
 </form>
